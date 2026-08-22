@@ -13,7 +13,9 @@ jobs:
     steps:
       - name: Deploy to DEV
         if: github.ref == 'refs/heads/develop'
+        shell: powershell
         run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
           cd C:\Apps\MyPythonApp_DEV
           git pull origin develop
           venv\Scripts\pip install -r requirements.txt
@@ -21,7 +23,9 @@ jobs:
 
       - name: Deploy to UAT
         if: github.ref == 'refs/heads/staging'
+        shell: powershell
         run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
           cd C:\Apps\MyPythonApp_UAT
           git pull origin staging
           venv\Scripts\pip install -r requirements.txt
@@ -29,7 +33,9 @@ jobs:
 
       - name: Deploy to PROD
         if: github.ref == 'refs/heads/main'
+        shell: powershell
         run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
           cd C:\Apps\MyPythonApp_PROD
           git pull origin main
           venv\Scripts\pip install -r requirements.txt
