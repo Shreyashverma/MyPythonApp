@@ -16,6 +16,7 @@ jobs:
         shell: powershell
         run: |
           Set-ExecutionPolicy Bypass -Scope Process -Force
+          git config --global --add safe.directory C:/Apps/MyPythonApp_DEV
           cd C:\Apps\MyPythonApp_DEV
           git pull origin develop
           venv\Scripts\pip install -r requirements.txt
@@ -26,6 +27,7 @@ jobs:
         shell: powershell
         run: |
           Set-ExecutionPolicy Bypass -Scope Process -Force
+          git config --global --add safe.directory C:/Apps/MyPythonApp_UAT
           cd C:\Apps\MyPythonApp_UAT
           git pull origin staging
           venv\Scripts\pip install -r requirements.txt
@@ -36,6 +38,7 @@ jobs:
         shell: powershell
         run: |
           Set-ExecutionPolicy Bypass -Scope Process -Force
+          git config --global --add safe.directory C:/Apps/MyPythonApp_PROD
           cd C:\Apps\MyPythonApp_PROD
           git pull origin main
           venv\Scripts\pip install -r requirements.txt
